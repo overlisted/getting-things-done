@@ -7,13 +7,13 @@ sources = [
     'src/main.vala',
     'src/Application.vala',
 ]
+
 executable(
-  meson.project_name(),
-  sources,
-  dependencies: [
-      dependency('gtk+-3.0')
-  ],
-  install: true
+    meson.project_name(),
+    sources,
+    dependencies: [
+        dependency('gtk+-3.0'),
+    install: true
 )
 
 i18n.merge_file(
