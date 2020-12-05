@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema path="/com/github/overlistedgetting-things-done/" id="com.github.overlisted.getting-things-done">
+    <key name="useless-setting" type="b">
+      <default>false</default>
+      <summary>Useless Setting</summary>
+      <description>Whether the switch is toggled</description>
+    </key>
+  </schema>
+</schemalist>

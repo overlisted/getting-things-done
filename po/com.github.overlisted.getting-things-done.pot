@@ -1,0 +1,53 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.overlisted.getting-things-done package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.overlisted.getting-things-done\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-05 02:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/getting-things-done.desktop.in:3
+#: data/getting-things-done.appdata.xml.in:6
+msgid "Getting Things Done"
+msgstr ""
+
+#: data/getting-things-done.desktop.in:4
+msgid "Task Manager"
+msgstr ""
+
+#: data/getting-things-done.desktop.in:5
+msgid "Easily manage your asks in a structure"
+msgstr ""
+
+#: data/getting-things-done.desktop.in:8
+msgid "application-default-icon"
+msgstr ""
+
+#: data/getting-things-done.desktop.in:11
+msgid "Organize;Tasks;"
+msgstr ""
+
+#: data/getting-things-done.desktop.in:15
+msgid "Add a Task"
+msgstr ""
+
+#: data/getting-things-done.appdata.xml.in:7
+msgid "Easily organize your tasks in a structure."
+msgstr ""
+
+#: data/getting-things-done.appdata.xml.in:9
+msgid ""
+"In the most task manager you can just have tasks in a flat list, but with "
+"this manager you can easily organize your tasks in a structure."
+msgstr ""
