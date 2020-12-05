@@ -1,7 +1,9 @@
 namespace GTD {
     public class TasksView : Gtk.TreeView {
+        Gtk.TreeStore store;
+
         construct {
-            var store = new Gtk.TreeStore (1, typeof (string));
+            store = new Gtk.TreeStore (2, typeof (string), typeof (Gtk.Popover));
 
             var title_renderer = new Gtk.CellRendererText ();
             var title_column = new Gtk.TreeViewColumn.with_attributes (_("Title"), title_renderer, "text", 0);
@@ -9,17 +11,14 @@ namespace GTD {
             append_column(title_column);
 
             model = store;
+        }
 
-            Gtk.TreeIter top;
-            store.append (out top, null);
-            store.@set (top, 0, "A huge task");
-
+        public void add_task(GTD.Task task, Gtk.TreeIter? top) {
             Gtk.TreeIter iter;
             store.append (out iter, top);
-            store.@set (iter, 0, "A little step");
+            store.@set (iter, 0, task.title);
 
-            store.append (out iter, top);
-            store.@set (iter, 0, "Another little step and we're done");
+            foreach (GTD.Task subtask in task.subtasks) add_task (subtask, iter);
         }
     }
 }
