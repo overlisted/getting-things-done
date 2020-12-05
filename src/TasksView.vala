@@ -11,6 +11,7 @@ namespace GTD {
             append_column(title_column);
 
             model = store;
+            headers_visible = false;
         }
 
         public void add_task(GTD.Task task, Gtk.TreeIter? top) {
