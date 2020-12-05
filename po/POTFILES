@@ -1,3 +1,5 @@
 src/Application.vala
+src/Window.vala
+src/TasksView.vala
 data/getting-things-done.desktop.in
 data/getting-things-done.appdata.xml.in

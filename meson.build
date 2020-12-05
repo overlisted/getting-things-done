@@ -15,6 +15,7 @@ sources = [
     'src/Application.vala',
     'src/Window.vala',
     'src/Task.vala',
+    'src/TasksView.vala',
 ]
 
 executable(
