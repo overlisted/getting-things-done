@@ -4,12 +4,12 @@ namespace GTD {
             var store = new Gtk.TreeStore (1, typeof (string));
 
             var title_renderer = new Gtk.CellRendererText ();
-            var title_column = new Gtk.TreeViewColumn.with_attributes ("Title", title_renderer, "text", 0);
+            var title_column = new Gtk.TreeViewColumn.with_attributes (_("Title"), title_renderer, "text", 0);
 
             append_column(title_column);
 
             model = store;
-            
+
             Gtk.TreeIter top;
             store.append (out top, null);
             store.@set (top, 0, "A huge task");
