@@ -20,8 +20,9 @@ namespace GTD {
             example_task.subtasks.append(new GTD.Task () { title = "A smaller task" });
             example_task.subtasks.append(new GTD.Task () { title = "Another small task and we're already done!" });
 
-            var tasks_view = new TasksView ();
-            tasks_view.add_task(example_task, null);
+            var tasks_model = new TasksModel ();
+            var tasks_view = new TasksView (tasks_model);
+            tasks_model.add_task(example_task, null);
 
             add (tasks_view);
         }
