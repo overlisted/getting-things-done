@@ -24,7 +24,7 @@ namespace GTD {
             var tasks_view = new TasksView (tasks_model);
             tasks_model.add_task(example_task, null);
 
-            add (tasks_view);
+            add (tasks_view.box);
         }
 
         public Window (App app) {
