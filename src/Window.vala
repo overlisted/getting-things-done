@@ -22,7 +22,7 @@ namespace GTD {
 
             var tasks_model = new TasksModel ();
             var tasks_view = new TasksView (tasks_model);
-            tasks_model.add_task(example_task, null);
+            tasks_model.add_task(example_task);
 
             add (tasks_view.box);
         }
