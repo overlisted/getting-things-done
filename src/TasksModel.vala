@@ -10,6 +10,25 @@ namespace GTD {
             }
         }
 
+        public void remove_task (GTD.Task task) {
+            remove_task_uuid (task.uuid);
+        }
+
+        // not tested lol
+        public void remove_task_uuid (string uuid) {
+            tree.@foreach ((model, path, iter) => {
+                GTD.Task it;
+                model.@get (iter, out it);
+
+                if (it.uuid == uuid) {
+                    tree.remove (ref iter);
+                    return true;
+                }
+
+                return false;
+            });
+        }
+
         public void add_task (GTD.Task task) {
             tasks += task;
             add_task_rec (task, null);
