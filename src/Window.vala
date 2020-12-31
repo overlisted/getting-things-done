@@ -1,7 +1,5 @@
 namespace GTD {
     public class Window : Gtk.ApplicationWindow {
-        TasksView tasks_view;
-    
         static construct {
             Hdy.init ();
         }
@@ -24,10 +22,8 @@ namespace GTD {
 
             var tasks_model = new TasksModel ();
             tasks_model.add_task (example_task);
-            
-            tasks_view = new TasksView (tasks_model);
 
-            add (tasks_view.box);
+            add (new TasksView (tasks_model));
         }
 
         public Window (App app) {

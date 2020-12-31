@@ -1,15 +1,15 @@
 namespace GTD {
-    public class TasksView {
+    public class TasksView : Gtk.Box {
         TasksModel tasks;
         Gtk.TreeView tree;
         Gtk.Stack stack;
-        public Gtk.Box box;
 
         public TasksView (TasksModel tasks) {
+            Object (orientation: Gtk.Orientation.HORIZONTAL, spacing: 0, homogeneous: false);
+        
             this.tasks = tasks;
             this.tree = new Gtk.TreeView.with_model (tasks.tree);
             this.stack = new Gtk.Stack ();
-            this.box = new Gtk.Box (HORIZONTAL, 0);
             tree.headers_visible = false;
 
             var title_renderer = new Gtk.CellRendererText ();
@@ -33,9 +33,8 @@ namespace GTD {
 
             tree.row_activated.connect ((path, column) => stack.visible_child_name = path.to_string ());
 
-            box.homogeneous = false;
-            box.pack_start (tree, true, true, 0);
-            box.pack_end (stack, true, false, 0);
+            pack_start (tree, true, true, 0);
+            pack_end (stack, true, false, 0);
         }
     }
 }
