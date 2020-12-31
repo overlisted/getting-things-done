@@ -1,10 +1,10 @@
 namespace GTD {
     public class TasksModel {
-        GTD.Task[] tasks;
+        GTD.Task[] toplevel_tasks;
         public Gtk.TreeStore tree = new Gtk.TreeStore.newv ({typeof (GTD.Task)});
 
         public void @foreach (GTD.Task.ForeachFunc f) {
-            foreach (var task in tasks) {
+            foreach (var task in toplevel_tasks) {
                 f (task);
                 task.foreach_rec (f);
             }
@@ -30,7 +30,7 @@ namespace GTD {
         }
 
         public void add_task (GTD.Task task) {
-            tasks += task;
+            toplevel_tasks += task;
             add_task_rec (task, null);
         }
 
