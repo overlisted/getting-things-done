@@ -2,6 +2,7 @@ namespace GTD {
     public class Task : Object {
         public delegate void ForeachFunc (GTD.Task task);
         
+        public string uuid;
         public string title;
         public List<Task> subtasks;
 
@@ -23,6 +24,7 @@ namespace GTD {
         }
 
         construct {
+            uuid = Uuid.string_random ();
             subtasks = new List<Task> ();
         }
     }
