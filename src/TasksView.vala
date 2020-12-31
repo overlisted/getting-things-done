@@ -12,8 +12,8 @@ namespace GTD {
             this.stack = new Gtk.Stack ();
             tree.headers_visible = false;
 
-            var title_renderer = new Gtk.CellRendererText ();
-            var title_column = new Gtk.TreeViewColumn.with_attributes (_("Title"), title_renderer, "text", 0);
+            var cell_renderer = new CellRendererTask ();
+            var title_column = new Gtk.TreeViewColumn.with_attributes (_("Task"), cell_renderer, "task", 0);
 
             tree.append_column (title_column);
 

@@ -17,7 +17,8 @@ sources = [
     'src/Task.vala',
     'src/TasksView.vala',
     'src/TasksModel.vala',
-    'src/TaskDetails.vala'
+    'src/TaskDetails.vala',
+    'src/CellRendererTask.vala',
 ]
 
 executable(
