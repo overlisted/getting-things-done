@@ -7,9 +7,10 @@ namespace GTD {
             this.task = task;
 
             var label = new Gtk.Label (task.title);
-            label.get_style_context ().add_class (".title");
+            label.hexpand = true;
+            label.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
 
-            add (label);
+            pack_start (label, false);
         }
     }
 }
