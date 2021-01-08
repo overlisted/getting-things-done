@@ -17,8 +17,8 @@ namespace GTD {
             header_context.add_class (Gtk.STYLE_CLASS_FLAT);
 
             var example_task = new GTD.Task () { title = "A huge task" };
-            example_task.subtasks.append (new GTD.Task () { title = "A smaller task" });
-            example_task.subtasks.append (new GTD.Task () { title = "Another small task and we're already done!" });
+            example_task.subtasks.append (new GTD.Task () { title = "A smaller task", deadline = new DateTime.now_utc ().add_hours(-1) });
+            example_task.subtasks.append (new GTD.Task () { title = "Another small task and we're already done!", finished_on = new DateTime.now_utc ().add_hours(-1) });
 
             var tasks_model = new TasksModel ();
             tasks_model.add_task (example_task);
