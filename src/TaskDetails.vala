@@ -1,6 +1,6 @@
 namespace GTD {
     public class TaskDetails : Gtk.Box {
-        GTD.Task task;
+        unowned GTD.Task task;
 
         public TaskDetails (GTD.Task task) {
             Object (orientation: Gtk.Orientation.HORIZONTAL, spacing: 6);
