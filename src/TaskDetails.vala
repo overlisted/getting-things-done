@@ -1,16 +1,15 @@
 namespace GTD {
-    public class TaskDetails {
-        public Gtk.Box box;
+    public class TaskDetails : Gtk.Box {
         GTD.Task task;
 
         public TaskDetails (GTD.Task task) {
+            Object (orientation: Gtk.Orientation.HORIZONTAL, spacing: 6);
             this.task = task;
-            this.box = new Gtk.Box (VERTICAL, 6);
 
             var label = new Gtk.Label (task.title);
             label.get_style_context ().add_class (".title");
 
-            box.add (label);
+            add (label);
         }
     }
 }

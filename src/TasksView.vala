@@ -6,7 +6,7 @@ namespace GTD {
 
         public TasksView (TasksModel tasks) {
             Object (orientation: Gtk.Orientation.HORIZONTAL, spacing: 0, homogeneous: false);
-        
+
             this.tasks = tasks;
             this.tree = new Gtk.TreeView.with_model (tasks.tree);
             this.stack = new Gtk.Stack ();
@@ -28,7 +28,7 @@ namespace GTD {
 
             tasks.@foreach (it => model_tasks.append (it));
             for (int i = 0; i < model_paths.length (); i++) {
-                stack.add_named (new TaskDetails (model_tasks.nth (i).data).box, model_paths.nth (i).data.to_string ());
+                stack.add_named (new TaskDetails (model_tasks.nth (i).data), model_paths.nth (i).data.to_string ());
             }
 
             tree.row_activated.connect ((path, column) => stack.visible_child_name = path.to_string ());
