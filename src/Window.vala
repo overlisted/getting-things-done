@@ -14,6 +14,13 @@ namespace GTD {
                 title = "Getting Things Done"
             };
 
+            var new_task_button = new Gtk.Button () {
+                image = new Gtk.Image.from_icon_name ("list-add", LARGE_TOOLBAR),
+                tooltip_text = "New task"
+            };
+
+            header.pack_start (new_task_button);
+
             unowned Gtk.StyleContext header_context = header.get_style_context ();
             header_context.add_class ("default-decoration");
             header_context.add_class (Gtk.STYLE_CLASS_FLAT);
@@ -27,7 +34,7 @@ namespace GTD {
             var tasks_model = new TasksModel ();
             tasks_model.add_task (example_task);
 
-            add (new TasksView (tasks_model));
+            add (new TasksView (tasks_model, new_task_button));
         }
 
         public Window (App app) {

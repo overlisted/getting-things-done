@@ -4,7 +4,7 @@ namespace GTD {
         Gtk.TreeView tree;
         Gtk.Stack stack;
 
-        public TasksView (TasksModel tasks) {
+        public TasksView (TasksModel tasks, Gtk.Button new_task_button) {
             Object (orientation: Gtk.Orientation.HORIZONTAL, spacing: 0, homogeneous: false);
 
             this.tasks = tasks;
@@ -32,6 +32,10 @@ namespace GTD {
             }
 
             tree.row_activated.connect ((path, column) => stack.visible_child_name = path.to_string ());
+
+            new_task_button.clicked.connect (() => {
+                tasks.add_task (new GTD.Task () { title = "TODO" }); // TODO
+            });
 
             pack_start (tree, true, true, 0);
             pack_end (stack, true, false, 0);
