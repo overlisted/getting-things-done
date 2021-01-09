@@ -9,6 +9,8 @@ namespace GTD {
     public class Task : Object {
         public delegate void ForeachFunc (GTD.Task task);
 
+        public weak Task parent; // `weak`: not today, memory leak!
+
         public string uuid;
         public string title;
         public DateTime started { get; construct; }
@@ -26,7 +28,7 @@ namespace GTD {
                 });
             }
         }
-        
+
         public DateTime? finished_on;
         public bool is_finished {
             get {
@@ -40,7 +42,7 @@ namespace GTD {
                 }
             }
         }
-        
+
         public TaskState state {
             get {
                 if (is_finished) {
@@ -60,8 +62,13 @@ namespace GTD {
                 }
             }
         }
-        
+
         public List<Task> subtasks;
+
+        public void add_subtask (owned Task task) {
+            subtasks.append (task);
+            task.parent = this;
+        }
 
         public void finish () {
             finished_on = new DateTime.now_utc ();
