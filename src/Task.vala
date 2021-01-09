@@ -74,10 +74,6 @@ namespace GTD {
             task.parent = this;
         }
 
-        public void finish () {
-            finished_on = new DateTime.now_utc ();
-        }
-
         public void foreach_flat (ForeachFunc f) {
             foreach (var task in subtasks) {
                 f (task);
