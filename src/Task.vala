@@ -40,6 +40,10 @@ namespace GTD {
                 } else {
                     finished_on = null;
                 }
+
+                foreach_flat (it => {
+                    it.is_finished = value;
+                });
             }
         }
 
