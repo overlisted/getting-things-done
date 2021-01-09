@@ -11,6 +11,8 @@ namespace GTD {
             label.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
 
             pack_start (label, false);
+
+            show_all();
         }
     }
 }
