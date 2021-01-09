@@ -7,14 +7,18 @@ namespace GTD {
         construct {
             title = "Getting Things Done";
 
-            var header = new Hdy.HeaderBar ();
-            header.has_subtitle = false;
-            header.decoration_layout = "close:maximize";
-            header.show_close_button = true;
+            var header = new Hdy.HeaderBar () {
+                has_subtitle = false,
+                decoration_layout = "close:maximize",
+                show_close_button = true,
+                title = "Getting Things Done"
+            };
 
             unowned Gtk.StyleContext header_context = header.get_style_context ();
             header_context.add_class ("default-decoration");
             header_context.add_class (Gtk.STYLE_CLASS_FLAT);
+
+            set_titlebar (header);
 
             var example_task = new GTD.Task () { title = "A huge task" };
             example_task.add_subtask (new GTD.Task () { title = "A smaller task", deadline = new DateTime.now_utc ().add_hours(-1) });
