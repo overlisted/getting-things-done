@@ -4,7 +4,6 @@ GenericName=Task Manager
 Comment=Easily manage your asks in a structure
 Categories=Utility;
 Exec=com.github.overlisted.getting-things-done
-Icon=application-default-icon
 Terminal=false
 Type=Application
 Keywords=Organize;Tasks;

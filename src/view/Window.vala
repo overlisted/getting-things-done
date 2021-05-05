@@ -9,6 +9,8 @@ namespace GTD {
             default_width = 640;
             default_height = 480;
 
+            get_style_context ().add_class (Granite.STYLE_CLASS_ROUNDED);
+
             var header = new Hdy.HeaderBar () {
                 has_subtitle = false,
                 decoration_layout = "close:maximize",
@@ -24,7 +26,7 @@ namespace GTD {
             header.pack_start (new_task_button);
 
             unowned Gtk.StyleContext header_context = header.get_style_context ();
-            header_context.add_class ("default-decoration");
+            header_context.add_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
             header_context.add_class (Gtk.STYLE_CLASS_FLAT);
 
             set_titlebar (header);
