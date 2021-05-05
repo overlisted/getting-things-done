@@ -6,6 +6,8 @@ namespace GTD {
 
         construct {
             title = "Getting Things Done";
+            default_width = 640;
+            default_height = 480;
 
             var header = new Hdy.HeaderBar () {
                 has_subtitle = false,
