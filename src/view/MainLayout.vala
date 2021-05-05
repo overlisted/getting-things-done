@@ -1,5 +1,5 @@
 namespace GTD {
-    public class TasksView : Gtk.Paned {
+    public class MainLayout : Gtk.Paned {
         TasksModel tasks;
         Gtk.TreeView tree;
         Gtk.Stack stack;
@@ -19,8 +19,33 @@ namespace GTD {
             }
         }
 
-        public TasksView (TasksModel tasks, Gtk.Button new_task_button) {
+        public MainLayout (TasksModel tasks) {
             Object (orientation: Gtk.Orientation.HORIZONTAL);
+
+            var left_header = new Hdy.HeaderBar () {
+                decoration_layout = "close:",
+                show_close_button = true
+            };
+
+            var new_task_button = new Gtk.Button () {
+                image = new Gtk.Image.from_icon_name ("list-add", LARGE_TOOLBAR),
+                tooltip_text = "New task"
+            };
+
+            left_header.pack_start (new_task_button);
+
+            unowned Gtk.StyleContext left_header_context = left_header.get_style_context ();
+            left_header_context.add_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
+            left_header_context.add_class (Gtk.STYLE_CLASS_FLAT);
+
+            var right_header = new Hdy.HeaderBar () {
+                decoration_layout = ":maximize",
+                show_close_button = false
+            };
+
+            unowned Gtk.StyleContext right_header_context = right_header.get_style_context ();
+            right_header_context.add_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
+            right_header_context.add_class (Gtk.STYLE_CLASS_FLAT);
 
             this.tasks = tasks;
             this.tree = new Gtk.TreeView.with_model (tasks.tree);
@@ -55,8 +80,17 @@ namespace GTD {
                 tasks.add_task (new GTD.Task () { title = "TODO" }); // TODO
             });
 
-            pack1 (tree, true, false);
-            pack2 (stack, true, true);
+            var left = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            left.add (left_header);
+            left.add (tree);
+            left.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
+
+            var right = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            right.add (right_header);
+            right.add (stack);
+
+            pack1 (left, true, false);
+            pack2 (right, true, true);
         }
     }
 }

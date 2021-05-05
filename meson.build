@@ -16,7 +16,7 @@ sources = [
     'src/model/Task.vala',
     'src/model/TasksModel.vala',
     'src/view/Window.vala',
-    'src/view/TasksView.vala',
+    'src/view/MainLayout.vala',
     'src/view/TaskDetails.vala',
     'src/view/CellRendererTask.vala',
 ]
