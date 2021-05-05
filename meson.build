@@ -13,12 +13,12 @@ resources = gnome.compile_resources(
 sources = [
     'src/main.vala',
     'src/Application.vala',
-    'src/Window.vala',
-    'src/Task.vala',
-    'src/TasksView.vala',
-    'src/TasksModel.vala',
-    'src/TaskDetails.vala',
-    'src/CellRendererTask.vala',
+    'src/model/Task.vala',
+    'src/model/TasksModel.vala',
+    'src/view/Window.vala',
+    'src/view/TasksView.vala',
+    'src/view/TaskDetails.vala',
+    'src/view/CellRendererTask.vala',
 ]
 
 executable(
