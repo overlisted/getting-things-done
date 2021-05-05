@@ -10,11 +10,11 @@ namespace GTD {
             notify["task"].connect (() => {
                 text = task.title;
 
-                background_set = false;
+                foreground_set = false;
                 strikethrough_set = false;
                 switch (task.state) {
                     case UNFINISHED: {
-                        background_rgba = color_unfinished;
+                        foreground_rgba = color_unfinished;
                         break;
                     }
                     case DONE: {
@@ -22,11 +22,11 @@ namespace GTD {
                         break;
                     }
                     case OVERDUE: {
-                        background_rgba = color_overdue;
+                        foreground_rgba = color_overdue;
                         break;
                     }
                     case DONE_TOO_LATE: {
-                        background_rgba = color_done_too_late;
+                        foreground_rgba = color_done_too_late;
                         break;
                     }
                 }
