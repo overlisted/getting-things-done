@@ -28,8 +28,8 @@ namespace GTD {
             set_titlebar (header);
 
             var example_task = new GTD.Task () { title = "A huge task" };
-            example_task.add_subtask (new GTD.Task () { title = "A smaller task", deadline = new DateTime.now_utc ().add_hours(-1) });
-            example_task.add_subtask (new GTD.Task () { title = "Another small task and we're already done!", finished_on = new DateTime.now_utc ().add_hours(-1) });
+            example_task.add_subtask (new GTD.Task () { title = "A smaller task", deadline = new DateTime.now_utc ().add_hours (-1) });
+            example_task.add_subtask (new GTD.Task () { title = "Another small task and we're already done!", finished_on = new DateTime.now_utc ().add_hours (-1) });
 
             var tasks_model = new TasksModel ();
             tasks_model.add_task (example_task);

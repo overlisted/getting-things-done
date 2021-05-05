@@ -12,7 +12,7 @@ namespace GTD {
 
             pack_start (label, false);
 
-            show_all();
+            show_all ();
         }
     }
 }
