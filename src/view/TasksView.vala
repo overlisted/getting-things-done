@@ -1,5 +1,5 @@
 namespace GTD {
-    public class TasksView : Gtk.Box {
+    public class TasksView : Gtk.Paned {
         TasksModel tasks;
         Gtk.TreeView tree;
         Gtk.Stack stack;
@@ -20,7 +20,7 @@ namespace GTD {
         }
 
         public TasksView (TasksModel tasks, Gtk.Button new_task_button) {
-            Object (orientation: Gtk.Orientation.HORIZONTAL, spacing: 0, homogeneous: false);
+            Object (orientation: Gtk.Orientation.HORIZONTAL);
 
             this.tasks = tasks;
             this.tree = new Gtk.TreeView.with_model (tasks.tree);
@@ -55,8 +55,8 @@ namespace GTD {
                 tasks.add_task (new GTD.Task () { title = "TODO" }); // TODO
             });
 
-            pack_start (tree, true, true, 0);
-            pack_end (stack, true, false, 0);
+            pack1 (tree, true, false);
+            pack2 (stack, true, true);
         }
     }
 }
