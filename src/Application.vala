@@ -9,6 +9,13 @@ namespace GTD {
         }
 
         protected override void activate () {
+            var gtk_settings = Gtk.Settings.get_default ();
+            if (!gtk_settings.gtk_theme_name.has_prefix ("io.elementary")) {
+                gtk_settings.gtk_theme_name = "io.elementary.stylesheet.lime";
+            }
+            gtk_settings.gtk_icon_theme_name = "elementary";
+            gtk_settings.gtk_cursor_theme_name = "elementary";
+
             var window = new GTD.Window (this);
             window.show_all ();
         }
