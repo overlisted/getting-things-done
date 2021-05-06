@@ -38,15 +38,6 @@ namespace GTD {
             left_header_context.add_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
             left_header_context.add_class (Gtk.STYLE_CLASS_FLAT);
 
-            var right_header = new Hdy.HeaderBar () {
-                decoration_layout = ":maximize",
-                show_close_button = false
-            };
-
-            unowned Gtk.StyleContext right_header_context = right_header.get_style_context ();
-            right_header_context.add_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
-            right_header_context.add_class (Gtk.STYLE_CLASS_FLAT);
-
             this.tasks = tasks;
             this.tree = new Gtk.TreeView.with_model (tasks.tree);
             this.stack = new Gtk.Stack ();
@@ -85,12 +76,8 @@ namespace GTD {
             left.add (tree);
             left.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
 
-            var right = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            right.add (right_header);
-            right.add (stack);
-
             pack1 (left, true, false);
-            pack2 (right, true, true);
+            pack2 (stack, true, true);
         }
     }
 }
