@@ -29,7 +29,7 @@ namespace GTD {
 
             var new_task_button = new Gtk.Button () {
                 image = new Gtk.Image.from_icon_name ("list-add", LARGE_TOOLBAR),
-                tooltip_text = "New task"
+                tooltip_text = _("New task")
             };
 
             left_header.pack_start (new_task_button);
