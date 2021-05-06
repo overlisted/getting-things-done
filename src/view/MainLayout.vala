@@ -70,7 +70,7 @@ namespace GTD {
             tree.row_activated.connect ((path, column) => stack.visible_child_name = path.to_string ());
 
             new_task_button.clicked.connect (() => {
-                tasks.add_task (new GTD.Task () { title = "TODO" }); // TODO
+                new NewTaskDialog (tasks, null);
             });
 
             var left = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);

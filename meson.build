@@ -19,6 +19,7 @@ sources = [
     'src/view/MainLayout.vala',
     'src/view/TaskDetails.vala',
     'src/view/CellRendererTask.vala',
+    'src/view/NewTaskDialog.vala',
 ]
 
 executable(
