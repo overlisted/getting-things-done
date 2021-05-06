@@ -6,8 +6,8 @@ namespace GTD {
 
         construct {
             title = "Getting Things Done";
-            default_width = 640;
-            default_height = 480;
+            default_width = 1280;
+            default_height = 720;
 
             get_style_context ().add_class (Granite.STYLE_CLASS_ROUNDED);
 
