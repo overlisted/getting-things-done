@@ -44,13 +44,12 @@ namespace GTD {
             tree.headers_visible = false;
             tree.activate_on_single_click = true;
             tree.expand_all ();
+            stack.transition_type = Gtk.StackTransitionType.SLIDE_UP_DOWN;
 
             var cell_renderer = new CellRendererTask ();
             title_column = new Gtk.TreeViewColumn.with_attributes (_("Task"), cell_renderer, "task", 0);
 
             tree.append_column (title_column);
-
-            stack.transition_type = SLIDE_LEFT;
 
             initialize_stack ();
 
