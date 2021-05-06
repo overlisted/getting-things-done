@@ -20,7 +20,7 @@ namespace GTD {
         }
 
         public MainLayout (TasksModel tasks) {
-            Object (orientation: Gtk.Orientation.HORIZONTAL);
+            Object (orientation: Gtk.Orientation.HORIZONTAL, position: 1);
 
             var left_header = new Hdy.HeaderBar () {
                 decoration_layout = "close:",
