@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.overlisted.getting-things-done\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-31 14:50+0000\n"
+"POT-Creation-Date: 2021-05-07 01:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,32 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/TasksView.vala:16
+#: src/view/MainLayout.vala:32
+msgid "New task"
+msgstr ""
+
+#: src/view/MainLayout.vala:51
 msgid "Task"
+msgstr ""
+
+#: src/view/TaskDetails.vala:15
+msgid "Add a subtask"
+msgstr ""
+
+#: src/view/NewTaskDialog.vala:22
+msgid "Title:"
+msgstr ""
+
+#: src/view/NewTaskDialog.vala:24
+msgid "Deadline:"
+msgstr ""
+
+#: src/view/NewTaskDialog.vala:34
+msgid "Cancel"
+msgstr ""
+
+#: src/view/NewTaskDialog.vala:37
+msgid "Create Task"
 msgstr ""
 
 #: data/getting-things-done.desktop.in:3
@@ -34,15 +58,11 @@ msgstr ""
 msgid "Easily manage your asks in a structure"
 msgstr ""
 
-#: data/getting-things-done.desktop.in:8
-msgid "application-default-icon"
-msgstr ""
-
-#: data/getting-things-done.desktop.in:11
+#: data/getting-things-done.desktop.in:10
 msgid "Organize;Tasks;"
 msgstr ""
 
-#: data/getting-things-done.desktop.in:15
+#: data/getting-things-done.desktop.in:14
 msgid "Add a Task"
 msgstr ""
 

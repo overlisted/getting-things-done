@@ -7,20 +7,45 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.overlisted.getting-things-done\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-31 14:50+0000\n"
+"POT-Creation-Date: 2021-05-07 01:50+0200\n"
 "PO-Revision-Date: 2021-02-24 19:49+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: \n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
-"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: nl\n"
 
-#: src/TasksView.vala:16
+#: src/view/MainLayout.vala:32
+msgid "New task"
+msgstr ""
+
+#: src/view/MainLayout.vala:51
 msgid "Task"
 msgstr "Taak"
+
+#: src/view/TaskDetails.vala:15
+#, fuzzy
+msgid "Add a subtask"
+msgstr "Taak toevoegen"
+
+#: src/view/NewTaskDialog.vala:22
+msgid "Title:"
+msgstr ""
+
+#: src/view/NewTaskDialog.vala:24
+msgid "Deadline:"
+msgstr ""
+
+#: src/view/NewTaskDialog.vala:34
+msgid "Cancel"
+msgstr ""
+
+#: src/view/NewTaskDialog.vala:37
+msgid "Create Task"
+msgstr ""
 
 #: data/getting-things-done.desktop.in:3
 #: data/getting-things-done.appdata.xml.in:6
@@ -35,15 +60,11 @@ msgstr "Taakbeheerder"
 msgid "Easily manage your asks in a structure"
 msgstr "Beheer je taken eenvoudig en structureel"
 
-#: data/getting-things-done.desktop.in:8
-msgid "application-default-icon"
-msgstr "application-default-icon"
-
-#: data/getting-things-done.desktop.in:11
+#: data/getting-things-done.desktop.in:10
 msgid "Organize;Tasks;"
 msgstr "Organiseren;Taken;"
 
-#: data/getting-things-done.desktop.in:15
+#: data/getting-things-done.desktop.in:14
 msgid "Add a Task"
 msgstr "Taak toevoegen"
 
@@ -56,5 +77,8 @@ msgid ""
 "In the most task manager you can just have tasks in a flat list, but with "
 "this manager you can easily organize your tasks in a structure."
 msgstr ""
-"De meeste taakbeheerders tonen taken alleen in een strakke lijst, maar "
-"met deze beheerder kun je je taken structureel organiseren."
+"De meeste taakbeheerders tonen taken alleen in een strakke lijst, maar met "
+"deze beheerder kun je je taken structureel organiseren."
+
+#~ msgid "application-default-icon"
+#~ msgstr "application-default-icon"

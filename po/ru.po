@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.overlisted.getting-things-done\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-31 14:50+0000\n"
+"POT-Creation-Date: 2021-05-07 01:50+0200\n"
 "PO-Revision-Date: 2020-12-05 01:53+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,9 +18,34 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: src/TasksView.vala:16
+#: src/view/MainLayout.vala:32
+msgid "New task"
+msgstr ""
+
+#: src/view/MainLayout.vala:51
 msgid "Task"
 msgstr "Задача"
+
+#: src/view/TaskDetails.vala:15
+#, fuzzy
+msgid "Add a subtask"
+msgstr "Добавить задачу"
+
+#: src/view/NewTaskDialog.vala:22
+msgid "Title:"
+msgstr ""
+
+#: src/view/NewTaskDialog.vala:24
+msgid "Deadline:"
+msgstr ""
+
+#: src/view/NewTaskDialog.vala:34
+msgid "Cancel"
+msgstr ""
+
+#: src/view/NewTaskDialog.vala:37
+msgid "Create Task"
+msgstr ""
 
 #: data/getting-things-done.desktop.in:3
 #: data/getting-things-done.appdata.xml.in:6
@@ -35,15 +60,11 @@ msgstr "Менеджер задач"
 msgid "Easily manage your asks in a structure"
 msgstr "С легкостью управляйте своими задачами структурированно"
 
-#: data/getting-things-done.desktop.in:8
-msgid "application-default-icon"
-msgstr ""
-
-#: data/getting-things-done.desktop.in:11
+#: data/getting-things-done.desktop.in:10
 msgid "Organize;Tasks;"
 msgstr ""
 
-#: data/getting-things-done.desktop.in:15
+#: data/getting-things-done.desktop.in:14
 msgid "Add a Task"
 msgstr "Добавить задачу"
 
