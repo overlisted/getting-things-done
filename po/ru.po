@@ -20,7 +20,7 @@ msgstr ""
 
 #: src/view/MainLayout.vala:32
 msgid "New task"
-msgstr ""
+msgstr "Новая задача"
 
 #: src/view/MainLayout.vala:51
 msgid "Task"
@@ -33,19 +33,19 @@ msgstr "Добавить задачу"
 
 #: src/view/NewTaskDialog.vala:22
 msgid "Title:"
-msgstr ""
+msgstr "Заголовок:"
 
 #: src/view/NewTaskDialog.vala:24
 msgid "Deadline:"
-msgstr ""
+msgstr "Дедлайн:"
 
 #: src/view/NewTaskDialog.vala:34
 msgid "Cancel"
-msgstr ""
+msgstr "Отменить"
 
 #: src/view/NewTaskDialog.vala:37
 msgid "Create Task"
-msgstr ""
+msgstr "Создать Задачу"
 
 #: data/getting-things-done.desktop.in:3
 #: data/getting-things-done.appdata.xml.in:6
