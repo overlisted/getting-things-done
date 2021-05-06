@@ -42,6 +42,7 @@ namespace GTD {
             this.tree = new Gtk.TreeView.with_model (tasks.tree);
             this.stack = new Gtk.Stack ();
             tree.headers_visible = false;
+            tree.expand_all ();
 
             var cell_renderer = new CellRendererTask ();
             title_column = new Gtk.TreeViewColumn.with_attributes (_("Task"), cell_renderer, "task", 0);
