@@ -45,6 +45,7 @@ namespace GTD {
             tree.activate_on_single_click = true;
             tree.expand_all ();
             stack.transition_type = Gtk.StackTransitionType.SLIDE_UP_DOWN;
+            stack.homogeneous = false;
 
             var cell_renderer = new CellRendererTask ();
             title_column = new Gtk.TreeViewColumn.with_attributes (_("Task"), cell_renderer, "task", 0);
