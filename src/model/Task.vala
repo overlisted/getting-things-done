@@ -9,7 +9,7 @@ namespace GTD {
     public class Task : Object {
         public delegate void ForeachFunc (GTD.Task task);
 
-        public weak Task parent; // `weak`: not today, memory leak!
+        public weak Task? parent; // `weak`: not today, memory leak!
 
         public string uuid;
         public string title;
