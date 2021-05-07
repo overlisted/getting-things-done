@@ -20,7 +20,10 @@ namespace GTD {
         }
 
         public MainLayout (TasksModel tasks) {
-            Object (orientation: Gtk.Orientation.HORIZONTAL, position: 1);
+            Object (orientation: Gtk.Orientation.HORIZONTAL);
+
+            var settings = new Settings ("com.github.overlisted.getting-things-done");
+            settings.bind ("paned-position", this, "position", DEFAULT);
 
             var left_header = new Hdy.HeaderBar () {
                 decoration_layout = "close:",
