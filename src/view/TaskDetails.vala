@@ -10,6 +10,7 @@ namespace GTD {
             label.selectable = true;
             label.get_style_context ().add_class (Granite.STYLE_CLASS_H1_LABEL);
             label.xalign = 0;
+            label.ellipsize = Pango.EllipsizeMode.END;
 
             var text = new Gtk.Label (task.notes);
             text.selectable = true;

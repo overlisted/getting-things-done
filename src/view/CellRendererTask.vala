@@ -7,6 +7,7 @@ namespace GTD {
         public GTD.Task task { get; set; }
 
         construct {
+            ellipsize = Pango.EllipsizeMode.END;
             notify["task"].connect (() => {
                 text = task.title;
 
