@@ -7,7 +7,8 @@ namespace GTD {
             this.task = task;
 
             var label = new Gtk.Label (task.title);
-            label.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
+            label.selectable = true;
+            label.get_style_context ().add_class (Granite.STYLE_CLASS_H1_LABEL);
             label.xalign = 0;
 
             var add_subtask_button = new Gtk.Button () {
