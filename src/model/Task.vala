@@ -13,6 +13,7 @@ namespace GTD {
 
         public string uuid;
         public string title;
+        public string notes;
         public DateTime started { get; construct; }
         DateTime? _deadline = null;
         public DateTime? deadline {

@@ -17,6 +17,18 @@ namespace GTD {
             var deadline_switch = new Gtk.Switch ();
             deadline_switch.bind_property ("active", deadline_date_entry, "sensitive", SYNC_CREATE);
             deadline_switch.bind_property ("active", deadline_time_entry, "sensitive", SYNC_CREATE);
+            var notes_text = new Gtk.TextView ();
+            notes_text.margin = 3;
+            notes_text.wrap_mode = Gtk.WrapMode.WORD_CHAR;
+
+            var notes_scrolled = new Gtk.ScrolledWindow (null, null);
+            notes_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
+            notes_scrolled.add (notes_text);
+            notes_scrolled.height_request = 100;
+            notes_scrolled.expand = true;
+
+            var notes_frame = new Gtk.Frame (null);
+            notes_frame.add (notes_scrolled);
 
             var layout = new Gtk.Grid ();
             layout.column_spacing = 12;
@@ -27,6 +39,8 @@ namespace GTD {
             layout.attach (deadline_switch, 0, 4);
             layout.attach (deadline_date_entry, 1, 4);
             layout.attach (deadline_time_entry, 2, 4);
+            layout.attach (new Granite.HeaderLabel (_("Notes:")), 0, 5);
+            layout.attach (notes_frame, 0, 6, 3);
 
             var buttons = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
             buttons.spacing = 6;
@@ -38,7 +52,7 @@ namespace GTD {
 
             var create = new Gtk.Button.with_label (_("Create Task"));
             create.clicked.connect (() => {
-                var task = new GTD.Task () { title = title_entry.text };
+                var task = new GTD.Task () { title = title_entry.text, notes = notes_text.buffer.text };
 
                 if (deadline_switch.active) {
                     task.deadline = merge_date_and_time (deadline_date_entry.date, deadline_time_entry.time);
@@ -52,6 +66,7 @@ namespace GTD {
 
                 destroy ();
             });
+            create.sensitive = false;
 
             create.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
@@ -59,7 +74,7 @@ namespace GTD {
             buttons.add (create);
 
             title_entry.changed.connect (() => {
-               buttons.sensitive = title_entry.text.length > 0;
+               create.sensitive = title_entry.text.length > 0;
             });
 
             var content_area = get_content_area ();
