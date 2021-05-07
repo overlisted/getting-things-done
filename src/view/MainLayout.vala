@@ -44,7 +44,6 @@ namespace GTD {
             tree.headers_visible = false;
             tree.activate_on_single_click = true;
             tree.expand_all ();
-            stack.transition_type = Gtk.StackTransitionType.SLIDE_UP_DOWN;
             stack.homogeneous = false;
 
             var cell_renderer = new CellRendererTask ();
