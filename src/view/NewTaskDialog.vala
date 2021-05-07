@@ -8,6 +8,8 @@ namespace GTD {
         }
 
         public NewTaskDialog (TasksModel? store, GTD.Task? parent_task) {
+            Object (resizable: false);
+
             var title_entry = new Gtk.Entry ();
 
             var deadline_date_entry = new Granite.Widgets.DatePicker ();
