@@ -21,7 +21,7 @@ namespace GTD {
             });
 
             var content = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
-            content.margin = 6;
+            content.margin = 12;
             content.margin_top = 0;
             content.add (label);
 
