@@ -22,7 +22,7 @@ namespace GTD {
             layout.column_spacing = 12;
 
             layout.attach (new Granite.HeaderLabel (_("Title:")), 0, 1);
-            layout.attach (title_entry, 0, 2, 2);
+            layout.attach (title_entry, 0, 2, 3);
             layout.attach (new Granite.HeaderLabel (_("Deadline:")), 0, 3);
             layout.attach (deadline_switch, 0, 4);
             layout.attach (deadline_date_entry, 1, 4);
