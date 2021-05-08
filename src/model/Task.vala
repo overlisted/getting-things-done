@@ -74,6 +74,10 @@ namespace GTD {
             subtasks.append (task);
             task.parent = this;
 
+            task.@delete.connect (() => {
+                subtasks.remove (task);
+            });
+
             subtask_added (task);
         }
 
@@ -88,6 +92,7 @@ namespace GTD {
         }
 
         public signal void subtask_added (Task subtask);
+        public signal void @delete ();
 
         static void foreach_rec_step (ForeachFunc f, Task task) {
             task.foreach_flat (it => {

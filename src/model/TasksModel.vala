@@ -21,6 +21,7 @@ namespace GTD {
             id_lookup_map[subtask.id] = subtask;
 
             row_inserted (path, iter);
+            subtask.@delete.connect (task => row_deleted (path));
 
             subtask.notify.connect(() => row_changed (path, iter));
 

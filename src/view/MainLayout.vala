@@ -21,6 +21,12 @@ namespace GTD {
             }
         }
 
+        void rebuild_stack () {
+            stack.@foreach (stack.remove);
+
+            initialize_stack ();
+        }
+
         public MainLayout (TasksModel model) {
             Object (orientation: Gtk.Orientation.HORIZONTAL);
 
@@ -69,8 +75,8 @@ namespace GTD {
                 tree.expand_row (path, true);
             });
 
-            model.row_deleted.connect (path => {
-                stack.remove (stack.get_child_by_name (path.to_string ()));
+            model.row_deleted.connect (() => {
+                rebuild_stack ();
             });
 
             tree.row_activated.connect ((path, column) => stack.visible_child_name = path.to_string ());

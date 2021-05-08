@@ -47,6 +47,14 @@ namespace GTD {
                 finish_task_button.label = task.is_finished ? _("Mark as unfinished") : _("Finish task");
             });
 
+            var delete_task_button = new Gtk.Button.with_label (_("Delete task"));
+
+            delete_task_button.clicked.connect (() => {
+                task.@delete ();
+            });
+
+            delete_task_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
             var content = new Gtk.Box (Gtk.Orientation.VERTICAL, 6) {
                 margin = 12,
                 margin_top = 0
@@ -65,6 +73,7 @@ namespace GTD {
 
             header.pack_start (add_subtask_button);
             header.pack_start (finish_task_button);
+            header.pack_start (delete_task_button);
 
             pack_start (header, false);
             pack_end (content);
