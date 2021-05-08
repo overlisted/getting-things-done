@@ -91,7 +91,7 @@ namespace GTD {
             left.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
 
             pack1 (left, true, false);
-            pack2 (stack, true, true);
+            pack2 (stack, true, false);
         }
     }
 }
