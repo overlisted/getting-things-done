@@ -15,9 +15,14 @@ namespace GTD {
         void on_subtask_added (GTD.Task subtask) {
             subtask.subtask_added.connect (on_subtask_added);
 
+            var path = subtask_to_path (subtask);
+            var iter = task_to_iter (subtask);
+
             id_lookup_map[subtask.id] = subtask;
 
-            row_inserted (subtask_to_path (subtask), task_to_iter (subtask));
+            row_inserted (path, iter);
+
+            subtask.notify.connect(() => row_changed (path, iter));
 
             if (subtask.parent != null && subtask.parent.subtasks.length () == 1) {
                 row_has_child_toggled (subtask_to_path (subtask.parent), task_to_iter (subtask.parent));
