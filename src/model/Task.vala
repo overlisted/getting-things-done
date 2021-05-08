@@ -11,7 +11,7 @@ namespace GTD {
 
         public weak Task? parent; // `weak`: not today, memory leak!
 
-        public string uuid;
+        public int32 id;
         public string title;
         public string notes;
         public DateTime started { get; construct; }
@@ -73,6 +73,8 @@ namespace GTD {
         public void add_subtask (owned Task task) {
             subtasks.append (task);
             task.parent = this;
+
+            subtask_added (task);
         }
 
         public void foreach_flat (ForeachFunc f) {
@@ -85,6 +87,8 @@ namespace GTD {
             foreach_rec_step (f, this);
         }
 
+        public signal void subtask_added (Task subtask);
+
         static void foreach_rec_step (ForeachFunc f, Task task) {
             task.foreach_flat (it => {
                 f (it);
@@ -93,7 +97,7 @@ namespace GTD {
         }
 
         construct {
-            uuid = Uuid.string_random ();
+            id = Random.int_range (int32.MIN, int32.MAX);
             started = new DateTime.now_utc ();
             subtasks = new List<Task> ();
         }

@@ -1,25 +1,27 @@
 namespace GTD {
     public class MainLayout : Gtk.Paned {
-        TasksModel tasks;
+        TasksModel model;
         Gtk.TreeView tree;
         Gtk.Stack stack;
         Gtk.TreeViewColumn title_column;
 
         void initialize_stack () {
-            var model_paths = new List<Gtk.TreePath> ();
-            var model_tasks = new List<GTD.Task> ();
-            tasks.tree.@foreach ((model, path, it) => {
-                model_paths.append (path);
+            var model_paths = new Gee.ArrayList<Gtk.TreePath> ();
+            var model_tasks = new Gee.ArrayList<GTD.Task> ();
+
+            model.@foreach ((model, path, it) => {
+                model_paths.add (path);
                 return false;
             });
 
-            tasks.@foreach (it => model_tasks.append (it));
-            for (int i = 0; i < model_paths.length (); i++) {
-                stack.add_named (new TaskDetails (model_tasks.nth (i).data), model_paths.nth (i).data.to_string ());
+            model.root_task.foreach_rec (it => model_tasks.add (it));
+
+            for (int i = 0; i < model_paths.size; i++) {
+                stack.add_named (new TaskDetails (model_tasks[i]), model_paths[i].to_string ());
             }
         }
 
-        public MainLayout (TasksModel tasks) {
+        public MainLayout (TasksModel model) {
             Object (orientation: Gtk.Orientation.HORIZONTAL);
 
             var settings = new Settings ("com.github.overlisted.getting-things-done");
@@ -41,8 +43,8 @@ namespace GTD {
             left_header_context.add_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
             left_header_context.add_class (Gtk.STYLE_CLASS_FLAT);
 
-            this.tasks = tasks;
-            this.tree = new Gtk.TreeView.with_model (tasks.tree);
+            this.model = model;
+            this.tree = new Gtk.TreeView.with_model (model);
             this.stack = new Gtk.Stack ();
             tree.headers_visible = false;
             tree.activate_on_single_click = true;
@@ -56,23 +58,22 @@ namespace GTD {
 
             initialize_stack ();
 
-            tasks.tree.row_deleted.connect (path => {
-                stack.remove (stack.get_child_by_name (path.to_string ()));
+            model.row_inserted.connect ((path, iter) => {
+                stack.add_named (new TaskDetails (model.iter_to_task (iter)), path.to_string ());
             });
 
-            tasks.tree.row_changed.connect ((path, iter) => {
-                unowned GTD.Task task;
-                tasks.tree.@get (iter, 0, out task);
-                if (stack.get_child_by_name (path.to_string ()) == null) {
-                    var view = new TaskDetails (task);
-                    stack.add_named (view, path.to_string ());
-                }
+            model.row_has_child_toggled.connect (path => {
+                tree.expand_row (path, true);
+            });
+
+            model.row_deleted.connect (path => {
+                stack.remove (stack.get_child_by_name (path.to_string ()));
             });
 
             tree.row_activated.connect ((path, column) => stack.visible_child_name = path.to_string ());
 
             new_task_button.clicked.connect (() => {
-                new NewTaskDialog (tasks, null);
+                new NewTaskDialog (model.root_task);
             });
 
             var left = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);

@@ -7,7 +7,7 @@ namespace GTD {
                 .add_seconds (time.get_second ());
         }
 
-        public NewTaskDialog (TasksModel? store, GTD.Task? parent_task) {
+        public NewTaskDialog (GTD.Task parent_task) {
             Object (resizable: false);
 
             var title_entry = new Gtk.Entry ();
@@ -58,11 +58,7 @@ namespace GTD {
                     task.deadline = merge_date_and_time (deadline_date_entry.date, deadline_time_entry.time);
                 }
 
-                if (parent_task == null) {
-                    store.add_task (task);
-                } else {
-                    parent_task.add_subtask (task);
-                }
+                parent_task.add_subtask (task);
 
                 destroy ();
             });

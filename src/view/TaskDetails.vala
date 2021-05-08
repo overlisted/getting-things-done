@@ -33,7 +33,7 @@ namespace GTD {
             };
 
             add_subtask_button.clicked.connect (() => {
-                new NewTaskDialog (null, task);
+                new NewTaskDialog (task);
             });
 
             var content = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
