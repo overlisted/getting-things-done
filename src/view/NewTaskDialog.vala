@@ -17,21 +17,25 @@ namespace GTD {
             var deadline_switch = new Gtk.Switch ();
             deadline_switch.bind_property ("active", deadline_date_entry, "sensitive", SYNC_CREATE);
             deadline_switch.bind_property ("active", deadline_time_entry, "sensitive", SYNC_CREATE);
-            var notes_text = new Gtk.TextView ();
-            notes_text.margin = 3;
-            notes_text.wrap_mode = Gtk.WrapMode.WORD_CHAR;
+            var notes_text = new Gtk.TextView () {
+                margin = 3,
+                wrap_mode = Gtk.WrapMode.WORD_CHAR
+            };
 
-            var notes_scrolled = new Gtk.ScrolledWindow (null, null);
-            notes_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
+            var notes_scrolled = new Gtk.ScrolledWindow (null, null) {
+                hscrollbar_policy = Gtk.PolicyType.NEVER,
+                height_request = 100,
+                expand = true
+            };
+
             notes_scrolled.add (notes_text);
-            notes_scrolled.height_request = 100;
-            notes_scrolled.expand = true;
 
             var notes_frame = new Gtk.Frame (null);
             notes_frame.add (notes_scrolled);
 
-            var layout = new Gtk.Grid ();
-            layout.column_spacing = 12;
+            var layout = new Gtk.Grid () {
+                column_spacing = 12
+            };
 
             layout.attach (new Granite.HeaderLabel (_("Title:")), 0, 1);
             layout.attach (title_entry, 0, 2, 3);
@@ -42,15 +46,19 @@ namespace GTD {
             layout.attach (new Granite.HeaderLabel (_("Notes:")), 0, 5);
             layout.attach (notes_frame, 0, 6, 3);
 
-            var buttons = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
-            buttons.spacing = 6;
-            buttons.baseline_position = Gtk.BaselinePosition.CENTER;
-            buttons.set_layout (Gtk.ButtonBoxStyle.END);
+            var buttons = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL) {
+                spacing = 6,
+                baseline_position = Gtk.BaselinePosition.CENTER,
+                layout_style = Gtk.ButtonBoxStyle.END
+            };
 
             var cancel = new Gtk.Button.with_label (_("Cancel"));
             cancel.clicked.connect (destroy);
 
-            var create = new Gtk.Button.with_label (_("Create Task"));
+            var create = new Gtk.Button.with_label (_("Create Task")) {
+                sensitive = false
+            };
+
             create.clicked.connect (() => {
                 var task = new GTD.Task () { title = title_entry.text, notes = notes_text.buffer.text };
 
@@ -62,7 +70,6 @@ namespace GTD {
 
                 destroy ();
             });
-            create.sensitive = false;
 
             create.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 

@@ -4,10 +4,8 @@ namespace GTD {
             Hdy.init ();
         }
 
-        construct {
-            title = "Getting Things Done";
-            default_width = 1280;
-            default_height = 720;
+        public Window (App app) {
+            Object (application: app, title: "Getting Things Done", default_width: 1280, default_height: 720);
 
             get_style_context ().add_class (Granite.STYLE_CLASS_ROUNDED);
 
@@ -21,10 +19,6 @@ namespace GTD {
             example_task.add_subtask (subtask2);
 
             add (new MainLayout (tasks_model));
-        }
-
-        public Window (App app) {
-            Object (application: app);
         }
     }
 }

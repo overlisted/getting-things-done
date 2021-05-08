@@ -44,12 +44,16 @@ namespace GTD {
             left_header_context.add_class (Gtk.STYLE_CLASS_FLAT);
 
             this.model = model;
-            this.tree = new Gtk.TreeView.with_model (model);
-            this.stack = new Gtk.Stack ();
-            tree.headers_visible = false;
-            tree.activate_on_single_click = true;
+            this.tree = new Gtk.TreeView.with_model (model) {
+                headers_visible = false,
+                activate_on_single_click = true
+            };
+
             tree.expand_all ();
-            stack.homogeneous = false;
+
+            this.stack = new Gtk.Stack () {
+                homogeneous = false
+            };
 
             var cell_renderer = new CellRendererTask ();
             title_column = new Gtk.TreeViewColumn.with_attributes (_("Task"), cell_renderer, "task", 0);
