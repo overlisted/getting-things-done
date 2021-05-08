@@ -87,8 +87,8 @@ namespace GTD {
 
         static void foreach_rec_step (ForeachFunc f, Task task) {
             task.foreach_flat (it => {
-                foreach_rec_step (f, it);
                 f (it);
+                foreach_rec_step (f, it);
             });
         }
 
