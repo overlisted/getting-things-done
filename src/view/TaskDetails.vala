@@ -55,7 +55,6 @@ namespace GTD {
             };
 
             unowned Gtk.StyleContext header_context = header.get_style_context ();
-            header_context.add_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
             header_context.add_class (Gtk.STYLE_CLASS_FLAT);
 
             header.pack_end (add_subtask_button);

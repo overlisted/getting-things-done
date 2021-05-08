@@ -40,7 +40,6 @@ namespace GTD {
             left_header.pack_start (new_task_button);
 
             unowned Gtk.StyleContext left_header_context = left_header.get_style_context ();
-            left_header_context.add_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
             left_header_context.add_class (Gtk.STYLE_CLASS_FLAT);
 
             this.model = model;
