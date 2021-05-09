@@ -52,7 +52,7 @@ namespace GTD {
             get {
                 if (is_finished) {
                     if (deadline == null) return DONE;
-                    if (finished_on.compare (deadline) == -1) {
+                    if (deadline.compare (finished_on) == -1) {
                         return DONE_TOO_LATE;
                     } else {
                         return DONE;
