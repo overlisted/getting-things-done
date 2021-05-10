@@ -19,6 +19,8 @@ namespace GTD {
             for (int i = 0; i < model_paths.size; i++) {
                 stack.add_named (new TaskDetails (model_tasks[i]), model_paths[i].to_string ());
             }
+
+            stack.add_named (new PlaceholderPage (model), "placeholder");
         }
 
         void rebuild_stack () {

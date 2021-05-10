@@ -20,6 +20,7 @@ sources = [
     'src/view/TaskDetails.vala',
     'src/view/CellRendererTask.vala',
     'src/view/NewTaskDialog.vala',
+    'src/view/PlaceholderPage.vala',
     'src/view/RightHeader.vala',
 ]
 
