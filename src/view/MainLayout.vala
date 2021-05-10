@@ -68,6 +68,7 @@ namespace GTD {
             tree.append_column (title_column);
 
             initialize_stack ();
+            settings.bind ("open-page", stack, "visible_child_name", DEFAULT);
 
             model.row_inserted.connect ((path, iter) => {
                 stack.add_named (new TaskDetails (model.iter_to_task (iter)), path.to_string ());

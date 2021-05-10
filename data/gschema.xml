@@ -5,5 +5,9 @@
       <default>1</default>
       <summary>The position of the GtkPaned's handle</summary>
     </key>
+		<key name="open-page" type="s">
+      <default>"placeholder"</default>
+      <summary>The currently opened task or special page</summary>
+    </key>
   </schema>
 </schemalist>
