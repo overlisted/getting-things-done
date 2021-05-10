@@ -3,10 +3,20 @@ namespace GTD {
         public Settings settings;
         public TasksModel tasks;
 
+        bool with_dialog = false;
+
         construct {
             application_id = "com.github.overlisted.getting-things-done";
             flags = ApplicationFlags.FLAGS_NONE;
             settings = new Settings (application_id);
+
+            add_main_option ("new-task", '\0', 0, 0, "Open the \"New Task\" dialog", null);
+        }
+
+        protected override int handle_local_options (VariantDict options) {
+            if (options.contains ("new-task")) with_dialog = true;
+
+            return -1;
         }
 
         protected override void activate () {
@@ -34,6 +44,7 @@ namespace GTD {
 
             var window = new GTD.Window (this);
             window.show_all ();
+            if (with_dialog) new NewTaskDialog (tasks.root_task);
         }
     }
 }
