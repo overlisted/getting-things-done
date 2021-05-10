@@ -1,6 +1,7 @@
 sources = [
     'main.vala',
     'Application.vala',
+    'date_utils.vala',
     'model/Task.vala',
     'model/TasksModel.vala',
     'view/Window.vala',

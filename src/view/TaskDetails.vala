@@ -1,6 +1,31 @@
 namespace GTD {
     public class TaskDetails : Gtk.Box {
         unowned GTD.Task task;
+        Gtk.Label dates;
+
+        void rebuild_dates_text () {
+            var dates_text = new StringBuilder ();
+
+            /// TRANSLATORS: examples of %s: "Yesterday", "2 years ago"
+            dates_text.append (_("Started <b>%s</b>").printf (Granite.DateTime.get_relative_datetime (task.started)));
+
+            if (task.deadline != null) {
+                dates_text.append (" – ");
+                if (task.is_finished) {
+                    dates_text.append (_("Was due <b>%s</b>").printf (format_due_date (task.deadline)));
+                } else {
+                    dates_text.append (_("Due <b>%s</b>").printf (format_due_date (task.deadline)));
+                }
+            }
+
+            if (task.is_finished) {
+                dates_text.append (" – ");
+                dates_text.append (_("Finished <b>%s</b>")
+                    .printf (Granite.DateTime.get_relative_datetime (task.finished_on)));
+            }
+
+            dates.label = (string) dates_text.data;
+        }
 
         public TaskDetails (GTD.Task task) {
             Object (orientation: Gtk.Orientation.VERTICAL);
@@ -13,6 +38,21 @@ namespace GTD {
             };
 
             label.get_style_context ().add_class (Granite.STYLE_CLASS_H1_LABEL);
+
+            dates = new Gtk.Label ("") {
+                xalign = 0,
+                use_markup = true
+            };
+
+            rebuild_dates_text ();
+            task.notify.connect (() => rebuild_dates_text ());
+            Timeout.add_seconds (1, () => {
+                var visible = ((Gtk.Stack) parent).visible_child == this;
+
+                if (visible) rebuild_dates_text ();
+
+                return true;
+            });
 
             var text = new Gtk.Label (task.notes) {
                 selectable = true,
@@ -61,6 +101,7 @@ namespace GTD {
             };
 
             content.pack_start (label, false);
+            content.pack_start (dates, false);
             content.pack_end (scrolled);
 
             var header = new RightHeader ();
