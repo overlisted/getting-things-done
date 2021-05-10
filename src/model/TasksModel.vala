@@ -23,7 +23,7 @@ namespace GTD {
             row_inserted (path, iter);
             subtask.@delete.connect (task => row_deleted (path));
 
-            subtask.notify.connect(() => row_changed (path, iter));
+            subtask.notify.connect (() => row_changed (path, iter));
 
             if (subtask.parent != null && subtask.parent.subtasks.length () == 1) {
                 row_has_child_toggled (subtask_to_path (subtask.parent), task_to_iter (subtask.parent));
