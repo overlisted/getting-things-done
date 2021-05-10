@@ -63,13 +63,7 @@ namespace GTD {
             content.pack_start (label, false);
             content.pack_end (scrolled);
 
-            var header = new Hdy.HeaderBar () {
-                decoration_layout = ":maximize",
-                show_close_button = true
-            };
-
-            unowned Gtk.StyleContext header_context = header.get_style_context ();
-            header_context.add_class (Gtk.STYLE_CLASS_FLAT);
+            var header = new RightHeader ();
 
             header.pack_start (add_subtask_button);
             header.pack_start (finish_task_button);
