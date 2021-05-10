@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema path="/com/github/overlistedgetting-things-done/" id="com.github.overlisted.getting-things-done">
+  <schema path="/com/github/overlisted/getting-things-done/" id="com.github.overlisted.getting-things-done">
 		<key name="paned-position" type="i">
       <default>1</default>
       <summary>The position of the GtkPaned's handle</summary>
