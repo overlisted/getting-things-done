@@ -16,6 +16,12 @@ namespace GTD {
             gtk_settings.gtk_icon_theme_name = "elementary";
             gtk_settings.gtk_cursor_theme_name = "elementary";
 
+            var provider = new Gtk.CssProvider ();
+            provider.load_from_resource ("/com/github/overlisted/getting-things-done/overrides.css");
+            Gtk.StyleContext.add_provider_for_screen (
+                Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            );
+
             var window = new GTD.Window (this);
             window.show_all ();
         }

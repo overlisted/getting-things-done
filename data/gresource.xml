@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-    
   <gresource prefix="/com/github/overlisted/getting-things-done/">
+    <file compressed="true">overrides.css</file>
   </gresource>
 </gresources>
