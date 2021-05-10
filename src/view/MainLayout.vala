@@ -78,8 +78,13 @@ namespace GTD {
                 tree.expand_row (path, true);
             });
 
-            model.row_deleted.connect (() => {
+            model.row_deleted.connect (path => {
                 rebuild_stack ();
+
+                var parent = path.copy ();
+                if (!parent.up ()) return;
+
+                tree.set_cursor (parent, null, false);
             });
 
             tree.row_activated.connect ((path, column) => stack.visible_child_name = path.to_string ());
