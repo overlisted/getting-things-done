@@ -31,11 +31,13 @@ namespace GTD {
             Object (orientation: Gtk.Orientation.VERTICAL);
             this.task = task;
 
-            var label = new Gtk.Label (task.title) {
+            var label = new Gtk.Label (null) {
                 selectable = true,
                 xalign = 0,
                 ellipsize = Pango.EllipsizeMode.END
             };
+
+            task.bind_property ("title", label, "label", SYNC_CREATE);
 
             label.get_style_context ().add_class (Granite.STYLE_CLASS_H1_LABEL);
 
@@ -54,17 +56,26 @@ namespace GTD {
                 return true;
             });
 
-            var text = new Gtk.Label (task.notes) {
+            var text = new Gtk.Label (null) {
                 selectable = true,
                 wrap = true,
                 xalign = 0,
                 yalign = 0
             };
 
-            if (text.label == "") {
-                text.label = _("No notes");
-                text.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
-            };
+            var no_notes = _("No notes");
+
+            task.bind_property ("notes", text, "label", SYNC_CREATE, (_, source, ref target) => {
+                if (source == "") {
+                    target.set_string (no_notes);
+                    text.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+                } else {
+                    target.set_string ((string) source);
+                    text.get_style_context ().remove_class (Gtk.STYLE_CLASS_DIM_LABEL);
+                }
+
+                return true;
+            });
 
             var scrolled = new Gtk.ScrolledWindow (null, null) {
                 hscrollbar_policy = Gtk.PolicyType.NEVER
