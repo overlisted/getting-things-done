@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.overlisted.getting-things-done\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-07 01:50+0200\n"
+"POT-Creation-Date: 2021-05-11 20:30+0200\n"
 "PO-Revision-Date: 2020-12-05 01:53+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,32 +18,78 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: src/view/MainLayout.vala:32
+#: src/view/MainLayout.vala:45
 msgid "New task"
 msgstr "Новая задача"
 
-#: src/view/MainLayout.vala:51
+#: src/view/MainLayout.vala:66
 msgid "Task"
 msgstr "Задача"
 
+#. / TRANSLATORS: examples of %s: "Yesterday", "2 years ago"
+#: src/view/TaskDetails.vala:10
+#, c-format
+msgid "Started <b>%s</b>"
+msgstr ""
+
 #: src/view/TaskDetails.vala:15
+#, c-format
+msgid "Was due <b>%s</b>"
+msgstr ""
+
+#: src/view/TaskDetails.vala:17
+#, c-format
+msgid "Due <b>%s</b>"
+msgstr ""
+
+#: src/view/TaskDetails.vala:23
+#, c-format
+msgid "Finished <b>%s</b>"
+msgstr ""
+
+#: src/view/TaskDetails.vala:68
+msgid "No notes"
+msgstr ""
+
+#: src/view/TaskDetails.vala:88
 #, fuzzy
 msgid "Add a subtask"
 msgstr "Добавить задачу"
 
-#: src/view/NewTaskDialog.vala:22
+#: src/view/TaskDetails.vala:95 src/view/TaskDetails.vala:100
+msgid "Mark as unfinished"
+msgstr ""
+
+#: src/view/TaskDetails.vala:95 src/view/TaskDetails.vala:100
+msgid "Finish task"
+msgstr ""
+
+#: src/view/TaskDetails.vala:103
+#, fuzzy
+msgid "Delete task"
+msgstr "Новая задача"
+
+#: src/view/TaskDetails.vala:111
+msgid "Edit task"
+msgstr ""
+
+#: src/view/EditTaskDialog.vala:64
 msgid "Title:"
 msgstr "Заголовок:"
 
-#: src/view/NewTaskDialog.vala:24
+#: src/view/EditTaskDialog.vala:66
 msgid "Deadline:"
 msgstr "Дедлайн:"
 
-#: src/view/NewTaskDialog.vala:34
+#: src/view/EditTaskDialog.vala:70
+msgid "Notes:"
+msgstr ""
+
+#: src/view/EditTaskDialog.vala:79
 msgid "Cancel"
 msgstr "Отменить"
 
-#: src/view/NewTaskDialog.vala:37
+#: src/view/EditTaskDialog.vala:82
 msgid "Create Task"
 msgstr "Создать Задачу"
 
@@ -64,9 +110,10 @@ msgstr "С легкостью управляйте своими задачами
 msgid "Organize;Tasks;"
 msgstr ""
 
-#: data/getting-things-done.desktop.in:14
-msgid "Add a Task"
-msgstr "Добавить задачу"
+#: data/getting-things-done.desktop.in:15
+#, fuzzy
+msgid "Create a new task"
+msgstr "Создать Задачу"
 
 #: data/getting-things-done.appdata.xml.in:7
 msgid "Easily organize your tasks in a structure."
@@ -79,3 +126,6 @@ msgid ""
 msgstr ""
 "В большинстве менеджеров, задачи можно распределять только по списку, но "
 "вэтом менеджере задачи легко распределяются по структуре."
+
+#~ msgid "Add a Task"
+#~ msgstr "Добавить задачу"

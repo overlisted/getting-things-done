@@ -2,6 +2,6 @@ src/Application.vala
 src/view/Window.vala
 src/view/MainLayout.vala
 src/view/TaskDetails.vala
-src/view/NewTaskDialog.vala
+src/view/EditTaskDialog.vala
 data/getting-things-done.desktop.in
 data/getting-things-done.appdata.xml.in

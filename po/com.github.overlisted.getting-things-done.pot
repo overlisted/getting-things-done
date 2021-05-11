@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.overlisted.getting-things-done\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-07 01:50+0200\n"
+"POT-Creation-Date: 2021-05-11 20:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,31 +17,76 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/view/MainLayout.vala:32
+#: src/view/MainLayout.vala:45
 msgid "New task"
 msgstr ""
 
-#: src/view/MainLayout.vala:51
+#: src/view/MainLayout.vala:66
 msgid "Task"
 msgstr ""
 
+#. / TRANSLATORS: examples of %s: "Yesterday", "2 years ago"
+#: src/view/TaskDetails.vala:10
+#, c-format
+msgid "Started <b>%s</b>"
+msgstr ""
+
 #: src/view/TaskDetails.vala:15
+#, c-format
+msgid "Was due <b>%s</b>"
+msgstr ""
+
+#: src/view/TaskDetails.vala:17
+#, c-format
+msgid "Due <b>%s</b>"
+msgstr ""
+
+#: src/view/TaskDetails.vala:23
+#, c-format
+msgid "Finished <b>%s</b>"
+msgstr ""
+
+#: src/view/TaskDetails.vala:68
+msgid "No notes"
+msgstr ""
+
+#: src/view/TaskDetails.vala:88
 msgid "Add a subtask"
 msgstr ""
 
-#: src/view/NewTaskDialog.vala:22
+#: src/view/TaskDetails.vala:95 src/view/TaskDetails.vala:100
+msgid "Mark as unfinished"
+msgstr ""
+
+#: src/view/TaskDetails.vala:95 src/view/TaskDetails.vala:100
+msgid "Finish task"
+msgstr ""
+
+#: src/view/TaskDetails.vala:103
+msgid "Delete task"
+msgstr ""
+
+#: src/view/TaskDetails.vala:111
+msgid "Edit task"
+msgstr ""
+
+#: src/view/EditTaskDialog.vala:64
 msgid "Title:"
 msgstr ""
 
-#: src/view/NewTaskDialog.vala:24
+#: src/view/EditTaskDialog.vala:66
 msgid "Deadline:"
 msgstr ""
 
-#: src/view/NewTaskDialog.vala:34
+#: src/view/EditTaskDialog.vala:70
+msgid "Notes:"
+msgstr ""
+
+#: src/view/EditTaskDialog.vala:79
 msgid "Cancel"
 msgstr ""
 
-#: src/view/NewTaskDialog.vala:37
+#: src/view/EditTaskDialog.vala:82
 msgid "Create Task"
 msgstr ""
 
@@ -62,8 +107,8 @@ msgstr ""
 msgid "Organize;Tasks;"
 msgstr ""
 
-#: data/getting-things-done.desktop.in:14
-msgid "Add a Task"
+#: data/getting-things-done.desktop.in:15
+msgid "Create a new task"
 msgstr ""
 
 #: data/getting-things-done.appdata.xml.in:7
