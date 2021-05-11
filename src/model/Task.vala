@@ -11,11 +11,11 @@ namespace GTD {
 
         public weak Task? parent; // `weak`: not today, memory leak!
 
-        public int32 id;
-        public string title;
-        public string notes;
+        public int32 id { get; construct; }
+        public string title { get; set; }
+        public string notes { get; set; }
         public DateTime started { get; construct; }
-        DateTime? _deadline = null;
+        DateTime? _deadline { get; set; }
         public DateTime? deadline {
             get {
                 return _deadline;
@@ -30,7 +30,7 @@ namespace GTD {
             }
         }
 
-        public DateTime? finished_on;
+        public DateTime? finished_on { get; set; }
         public bool is_finished {
             get {
                 return finished_on != null;
@@ -68,7 +68,7 @@ namespace GTD {
             }
         }
 
-        public List<Task> subtasks;
+        public unowned List<Task> subtasks { get; private set; }
 
         public void add_subtask (owned Task task) {
             subtasks.append (task);
