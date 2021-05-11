@@ -1,10 +1,14 @@
 namespace GTD {
     public class EditTaskDialog : Granite.Dialog {
         private DateTime merge_date_and_time (DateTime date, DateTime time) {
-            return date
-                .add_hours (time.get_hour ())
-                .add_minutes (time.get_minute ())
-                .add_seconds (time.get_second ());
+            return new DateTime.local (
+                date.get_year (),
+                date.get_month (),
+                date.get_day_of_month (),
+                time.get_hour (),
+                time.get_minute (),
+                time.get_second ()
+            );
         }
 
         public signal void finished ();
