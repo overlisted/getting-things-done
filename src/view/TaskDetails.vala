@@ -49,6 +49,8 @@ namespace GTD {
             rebuild_dates_text ();
             task.notify.connect (() => rebuild_dates_text ());
             Timeout.add_seconds (1, () => {
+                if (parent == null) return false;
+
                 var visible = ((Gtk.Stack) parent).visible_child == this;
 
                 if (visible) rebuild_dates_text ();
