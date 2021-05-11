@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.overlisted.getting-things-done\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-11 20:30+0200\n"
+"POT-Creation-Date: 2021-05-11 20:35+0200\n"
 "PO-Revision-Date: 2020-12-05 01:53+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -30,48 +30,46 @@ msgstr "Задача"
 #: src/view/TaskDetails.vala:10
 #, c-format
 msgid "Started <b>%s</b>"
-msgstr ""
+msgstr "Начато <b>%s</b>"
 
 #: src/view/TaskDetails.vala:15
 #, c-format
 msgid "Was due <b>%s</b>"
-msgstr ""
+msgstr "Было до <b>%s</b>"
 
 #: src/view/TaskDetails.vala:17
 #, c-format
 msgid "Due <b>%s</b>"
-msgstr ""
+msgstr "До <b>%s</b>"
 
 #: src/view/TaskDetails.vala:23
 #, c-format
 msgid "Finished <b>%s</b>"
-msgstr ""
+msgstr "Завершено <b>%s</b>"
 
 #: src/view/TaskDetails.vala:68
 msgid "No notes"
-msgstr ""
+msgstr "Нет записки"
 
 #: src/view/TaskDetails.vala:88
-#, fuzzy
 msgid "Add a subtask"
-msgstr "Добавить задачу"
+msgstr "Добавить подзадачу"
 
 #: src/view/TaskDetails.vala:95 src/view/TaskDetails.vala:100
 msgid "Mark as unfinished"
-msgstr ""
+msgstr "Отметить незавершенным"
 
 #: src/view/TaskDetails.vala:95 src/view/TaskDetails.vala:100
 msgid "Finish task"
-msgstr ""
+msgstr "Завершить задачу"
 
 #: src/view/TaskDetails.vala:103
-#, fuzzy
 msgid "Delete task"
-msgstr "Новая задача"
+msgstr "Удалить задачу"
 
 #: src/view/TaskDetails.vala:111
 msgid "Edit task"
-msgstr ""
+msgstr "Редактировать задачу"
 
 #: src/view/EditTaskDialog.vala:64
 msgid "Title:"
@@ -83,7 +81,7 @@ msgstr "Дедлайн:"
 
 #: src/view/EditTaskDialog.vala:70
 msgid "Notes:"
-msgstr ""
+msgstr "Записка:"
 
 #: src/view/EditTaskDialog.vala:79
 msgid "Cancel"
@@ -111,9 +109,8 @@ msgid "Organize;Tasks;"
 msgstr ""
 
 #: data/getting-things-done.desktop.in:15
-#, fuzzy
 msgid "Create a new task"
-msgstr "Создать Задачу"
+msgstr "Создать новую задачу"
 
 #: data/getting-things-done.appdata.xml.in:7
 msgid "Easily organize your tasks in a structure."
