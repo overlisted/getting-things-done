@@ -95,6 +95,12 @@ namespace GTD {
 
             delete_task_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
+            var edit_button = new Gtk.Button.with_label (_("Edit task"));
+
+            edit_button.clicked.connect (() => {
+                new EditTaskDialog (task);
+            });
+
             var content = new Gtk.Box (Gtk.Orientation.VERTICAL, 6) {
                 margin = 12,
                 margin_top = 0
@@ -109,6 +115,7 @@ namespace GTD {
             header.pack_start (add_subtask_button);
             header.pack_start (finish_task_button);
             header.pack_start (delete_task_button);
+            header.pack_start (edit_button);
 
             pack_start (header, false);
             pack_end (content);
