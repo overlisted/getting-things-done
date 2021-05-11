@@ -36,7 +36,7 @@ namespace GTD {
             if (indices.length == 1) {
                 return parent.subtasks.nth_data (indices[0]).id;
             } else {
-                return path_to_id (parent.subtasks.nth_data (indices[0]), indices[1:]);
+                return path_to_id (parent.subtasks.nth_data (indices[0]), indices[1:indices.length]);
             }
         }
 
