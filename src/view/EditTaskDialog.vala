@@ -20,17 +20,27 @@ namespace GTD {
         public EditTaskDialog (GTD.Task task) {
             Object (resizable: false);
 
-            var title_entry = new Gtk.Entry ();
+            var title_entry = new Gtk.Entry () {
+                text = task.title
+            };
 
-            var deadline_date_entry = new Granite.Widgets.DatePicker ();
-            var deadline_time_entry = new Granite.Widgets.TimePicker ();
-            var deadline_switch = new Gtk.Switch ();
+            var deadline_date_entry = new Granite.Widgets.DatePicker () {
+                date = task.deadline
+            };
+            var deadline_time_entry = new Granite.Widgets.TimePicker () {
+                time = task.deadline
+            };
+            var deadline_switch = new Gtk.Switch () {
+                active = task.deadline != null
+            };
             deadline_switch.bind_property ("active", deadline_date_entry, "sensitive", SYNC_CREATE);
             deadline_switch.bind_property ("active", deadline_time_entry, "sensitive", SYNC_CREATE);
             var notes_text = new Gtk.TextView () {
                 margin = 3,
                 wrap_mode = Gtk.WrapMode.WORD_CHAR
             };
+
+            notes_text.buffer.text = task.notes;
 
             var notes_scrolled = new Gtk.ScrolledWindow (null, null) {
                 hscrollbar_policy = Gtk.PolicyType.NEVER,
@@ -66,7 +76,7 @@ namespace GTD {
             cancel.clicked.connect (destroy);
 
             var create = new Gtk.Button.with_label (_("Create Task")) {
-                sensitive = false
+                sensitive = title_entry.text.length > 0
             };
 
             create.clicked.connect (() => {
