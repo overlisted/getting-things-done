@@ -44,7 +44,7 @@ namespace GTD {
 
             var window = new GTD.Window (this);
             window.show_all ();
-            if (with_dialog) new NewTaskDialog (tasks.root_task);
+            if (with_dialog) new EditTaskDialog.add_task (tasks.root_task);
         }
     }
 }

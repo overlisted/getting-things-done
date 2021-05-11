@@ -8,7 +8,7 @@ sources = [
     'view/MainLayout.vala',
     'view/TaskDetails.vala',
     'view/CellRendererTask.vala',
-    'view/NewTaskDialog.vala',
+    'view/EditTaskDialog.vala',
     'view/PlaceholderPage.vala',
     'view/RightHeader.vala',
 ]

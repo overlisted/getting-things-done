@@ -90,7 +90,7 @@ namespace GTD {
             tree.row_activated.connect ((path, column) => stack.visible_child_name = path.to_string ());
 
             new_task_button.clicked.connect (() => {
-                new NewTaskDialog (model.root_task);
+                new EditTaskDialog.add_task (model.root_task);
             });
 
             var left = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);

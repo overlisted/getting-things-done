@@ -1,5 +1,5 @@
 namespace GTD {
-    public class NewTaskDialog : Granite.Dialog {
+    public class EditTaskDialog : Granite.Dialog {
         private DateTime merge_date_and_time (DateTime date, DateTime time) {
             return date
                 .add_hours (time.get_hour ())
@@ -7,7 +7,17 @@ namespace GTD {
                 .add_seconds (time.get_second ());
         }
 
-        public NewTaskDialog (GTD.Task parent_task) {
+        public signal void finished ();
+
+        public EditTaskDialog.add_task (GTD.Task parent) {
+            var task = new GTD.Task ();
+
+            this (task);
+
+            finished.connect (() => parent.add_subtask (task));
+        }
+
+        public EditTaskDialog (GTD.Task task) {
             Object (resizable: false);
 
             var title_entry = new Gtk.Entry ();
@@ -60,13 +70,14 @@ namespace GTD {
             };
 
             create.clicked.connect (() => {
-                var task = new GTD.Task () { title = title_entry.text, notes = notes_text.buffer.text };
+                task.title = title_entry.text;
+                task.notes = notes_text.buffer.text;
 
                 if (deadline_switch.active) {
                     task.deadline = merge_date_and_time (deadline_date_entry.date, deadline_time_entry.time);
                 }
 
-                parent_task.add_subtask (task);
+                finished ();
 
                 destroy ();
             });

@@ -75,7 +75,7 @@ namespace GTD {
             var add_subtask_button = new Gtk.Button .with_label (_("Add a subtask"));
 
             add_subtask_button.clicked.connect (() => {
-                new NewTaskDialog (task);
+                new EditTaskDialog.add_task (task);
             });
 
             var finish_task_button = new Gtk.Button.with_label (

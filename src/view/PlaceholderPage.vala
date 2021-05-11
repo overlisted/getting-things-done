@@ -12,7 +12,7 @@ namespace GTD {
             welcome.activated.connect (index => {
                 switch (index) {
                     case 0: {
-                        new NewTaskDialog (model.root_task);
+                        new EditTaskDialog.add_task (model.root_task);
 
                         break;
                     }
